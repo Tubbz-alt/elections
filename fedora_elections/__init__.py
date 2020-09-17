@@ -221,6 +221,8 @@ def set_session():  # pragma: no-cover
                     'FPCA'
                     in (OIDC.user_getfield('agreements') or []),
             })
+        print("userinfo:", getattr(flask.g, "_oidc_userinfo"))
+        LOG.info("userinfo: %s", getattr(flask.g, "_oidc_userinfo"))
         flask.g.fas_user = flask.session.fas_user
     else:
         flask.session.fas_user = None
